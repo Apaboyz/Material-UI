@@ -1,17 +1,7 @@
 import React from 'react';
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  IconButton,
-  Chip,
-  Box,
-} from '@mui/material';
+import { Card, CardMedia, CardContent, CardActions, Typography, IconButton, Chip, Box } from '@mui/material';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 
-// Komponen anak — menerima data foto & handler dari parent via props
 export default function PhotoCard({ photo, liked, onLike }) {
   return (
     <Card>
@@ -53,4 +43,3 @@ export default function PhotoCard({ photo, liked, onLike }) {
     </Card>
   );
 }
-

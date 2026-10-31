@@ -1,22 +1,17 @@
 import React, { useEffect } from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Grid,
-  Card,
-  CardContent,
-  Divider,
-} from '@mui/material';
+import { Box, Container, Typography, Button, Grid, Card, CardContent, Divider } from '@mui/material';
 import { AutoAwesome } from '@mui/icons-material';
 
+const FEATURES = [
+  { title: 'Hapus Background', desc: 'Otomatis hapus latar belakang foto dalam 1 detik.' },
+  { title: 'Filter AI',        desc: 'Ratusan filter cerdas untuk berbagai gaya foto.'    },
+  { title: 'Edit Teks',        desc: 'Tambahkan teks dengan font dan efek premium.'        },
+  { title: 'Resize Otomatis',  desc: 'Sesuaikan ukuran untuk semua platform sosial media.' },
+];
+
 export default function EditorPage() {
-  // useEffect: ubah judul tab browser saat halaman Editor dibuka
   useEffect(() => {
     document.title = 'Editor Foto AI — PicsArt';
-
-    // Cleanup: kembalikan judul semula saat meninggalkan halaman
     return () => {
       document.title = 'PicsArt';
     };
@@ -24,8 +19,6 @@ export default function EditorPage() {
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
-
-      {/* Header halaman */}
       <Box sx={{ mb: 6 }}>
         <Typography variant="h3" fontWeight={700} gutterBottom>
           Editor Foto AI
@@ -40,17 +33,11 @@ export default function EditorPage() {
 
       <Divider sx={{ mb: 6, borderColor: '#2a2a2e' }} />
 
-      {/* Fitur unggulan */}
       <Typography variant="h5" fontWeight={600} sx={{ mb: 3 }}>
         Fitur Unggulan
       </Typography>
       <Grid container spacing={2}>
-        {[
-          { title: 'Hapus Background', desc: 'Otomatis hapus latar belakang foto dalam 1 detik.' },
-          { title: 'Filter AI',         desc: 'Ratusan filter cerdas untuk berbagai gaya foto.' },
-          { title: 'Edit Teks',         desc: 'Tambahkan teks dengan font dan efek premium.' },
-          { title: 'Resize Otomatis',   desc: 'Sesuaikan ukuran untuk semua platform sosial media.' },
-        ].map(f => (
+        {FEATURES.map(f => (
           <Grid item xs={12} sm={6} key={f.title}>
             <Card sx={{ p: 1 }}>
               <CardContent>
@@ -65,7 +52,6 @@ export default function EditorPage() {
           </Grid>
         ))}
       </Grid>
-
     </Container>
   );
 }
